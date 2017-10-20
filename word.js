@@ -51,13 +51,16 @@ var Word = function() {
             }
         }
         console.log(this.challengeArray.join(""));
-        
+        callback(word);        
     };
 
-    this.guessLetter = function(answers) {
-    	newLetter.guessLetter(answers);
+    this.guessLetter = function(answers, callback) {
+    	newLetter.guessLetter(answers, callback);
     }
 }
 
 module.exports = Word;
 
+// need to a a case for when the letter guessed doesnt match any of the letters in the word
+// in that case remove one from guesses and call guessLetter again.
+// need to add check for guesses and if equalls zero then game over.
