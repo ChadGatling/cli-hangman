@@ -51,10 +51,11 @@ var Word = function() {
             }
         }
         console.log(this.challengeArray.join(""));
+        
     };
 
-    this.guessLetter = function() {
-    	newLetter.guessLetter();
+    this.guessLetter = function(answers) {
+    	newLetter.guessLetter(answers);
     }
 }
 

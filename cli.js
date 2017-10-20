@@ -4,10 +4,13 @@ var Word = require('./word');
 var newWord = new Word();
 
 function guessLetter() {
+	console.log("Running guessLetter");	
 	inquirer.prompt([{
 		name: "letter",
 		message: "Guess a letter."
-	}]).then(newWord.guessLetter());
+	}]).then(function (answers) {
+		newWord.guessLetter(answers);
+	}); 
 }
 
 function startGame() {
@@ -20,7 +23,8 @@ function startGame() {
 	        case true:
 	            newWord.getWord(function(word) {
 	                newWord.buildChallenge(word);
-	            }, newWord.guessLetter());
+	            });
+	            guessLetter(); // Where do I put guessLetter() to get it to run after the function just above here.
 	            break;
 	        case false:
 	            console.log("OK, byeeee.");
